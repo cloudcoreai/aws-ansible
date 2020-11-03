@@ -1,0 +1,24 @@
+version: 2.1
+
+defaults: &awscli_docker_container
+  docker:
+    - image: amazon/aws-cli
+
+commands:
+  run_cloudformation_template_cli:
+    steps:
+    - run: aws cloudformation create-stack --stack-name "udacity_project" --template-body file://aws_cfn_template.yaml --region=us-west-1
+
+
+jobs:
+  run_cloudformation_template_job:
+    <<: *awscli_docker_container
+    
+    steps:
+      - checkout
+      - run_cloudformation_template_cli
+
+workflows:
+  run_cloudformation_template_workflow:
+    jobs:
+      - run_cloudformation_template_job
