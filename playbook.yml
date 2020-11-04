@@ -3,8 +3,6 @@
 - name: Install Apache/httpd
   hosts: [all]
   remote_user: ec2-user
-  vars:
-    - ansible_host_key_checking: false
   roles:
     - prepare
     - apache
