@@ -7,7 +7,7 @@ defaults: &awscli_docker_container
 commands:
   run_cloudformation_template_cli:
     steps:
-    - run: aws cloudformation create-stack --stack-name "udacity_project" --template-body file://../aws_cfn_template.yaml --region=us-west-1
+    - run: aws cloudformation deploy --stack-name udacity_project --template-file aws_cfn_template.yaml --region=us-west-1
 
 
 jobs:
