@@ -30,8 +30,8 @@ jobs:
       - image: python:3.9.0-alpine3.12
     steps:
       - checkout
-      # - add_ssh_keys:
-      #     fingerprints: ["7f:5c:e1:8c:42:ab:00:13:72:eb:56:bd:e0:f2:a7:0c"]
+      - add_ssh_keys:
+          fingerprints: ["ab:88:d3:b3:4e:88:27:f0:06:8c:85:d7:a2:e6:e4:d7"]
       - run:
           name: Install Dependencies
           command: |
