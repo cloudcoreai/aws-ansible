@@ -30,8 +30,8 @@ jobs:
       - image: python:3.9.0-alpine3.12
     steps:
       - checkout
-      # - add_ssh_keys:
-      #     fingerprints: ["e0:1a:de:d5:79:f7:75:c7:44:d2:04:12:2c:bd:78:f9"]
+      - add_ssh_keys:
+          fingerprints: ["e0:1a:de:d5:79:f7:75:c7:44:d2:04:12:2c:bd:78:f9"]
       - run:
           name: Install Dependencies
           command: |
@@ -40,6 +40,10 @@ jobs:
           name: Run Echo when the job is complete
           command: |
             echo Finished installing Dependencies
+      - run:
+          name: Change to Sudo
+          command: |
+            sudo su
       - run:
           name: Configure Server
           command: |
