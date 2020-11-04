@@ -3,6 +3,8 @@
 - name: Install Apache/httpd
   hosts: [webservers]
   remote_user: ec2-user
+  vars: 
+    - ANSIBLE_HOST_KEY_CHECKING: false
   roles:
     - prepare
     - apache
