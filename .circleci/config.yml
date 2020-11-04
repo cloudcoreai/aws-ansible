@@ -10,8 +10,6 @@ commands:
     - run: 
         command: |
           aws cloudformation deploy --template-file aws_cfn_template.yml --stack-name udacityProject --region=us-west-1
-
-
 jobs:
 # ***** AWS INFRASTRUCTURE *****
   run_cloudformation_template_job:
@@ -20,6 +18,10 @@ jobs:
     steps:
       - checkout
       - run_cloudformation_template_cli
+      - run:
+          name: Run when the job is complete
+          command: |
+            echo "AWS Infrastructure Deployed"
 # ***** AWS INFRASTRUCTURE END *****
 
 # ***** SOFTWARE DEPLOYMENT START *****
@@ -38,6 +40,10 @@ jobs:
           name: Run Echo when the job is complete
           command: |
             echo Finished installing Dependencies
+      - run:
+          name: Configure Server
+          command: |
+            ansible-playbook -i production playbook.yml
 
 # ***** SOFTWARE DEPLOYMENT END *****
 workflows:

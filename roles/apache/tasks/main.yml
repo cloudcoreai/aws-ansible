@@ -1,0 +1,35 @@
+---
+# Step 1 install httpd
+- name: Install HTTPD
+  become: true # become sudo user
+  yum: # command to run
+      name: ["httpd"] # package name
+      state: latest # version
+      update_cache: yes # update the repository cache
+      # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_module.html
+
+# Step 2 Run HTTPD
+- name: Run HTTPD
+  become: true
+  service:
+      name: httpd
+      state: started
+      enabled: yes
+      # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/service_module.html
+
+# Step 3 change directory permissions.
+- name: Change directory permissions /var/www/html/
+  become: true
+  file:
+    path: /var/www/html
+    state: directory
+    mode: 0777
+    # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/file_module.html
+
+# Step 4 Copy File
+- name: Copy index.html and put in /var/www/html
+  become: true
+  copy:
+      src: index.html
+      dest: /var/www/html/index.html
+      backup: yes

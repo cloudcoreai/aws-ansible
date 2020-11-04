@@ -1,0 +1,8 @@
+---
+# Here we will create the tasks for preparing the ec2
+
+# Updating VM
+- name: "Update VM"
+  become: true
+  yum:
+    update_cache: yes
