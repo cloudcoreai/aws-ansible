@@ -43,7 +43,7 @@ jobs:
       - run:
           name: Configure Server
           command: |
-            ansible-playbook -i production playbook.yml
+            ansible-playbook --user=ec2-user -i production playbook.yml
 
 # ***** SOFTWARE DEPLOYMENT END *****
 workflows:
