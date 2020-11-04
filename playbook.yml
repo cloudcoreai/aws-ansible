@@ -1,7 +1,7 @@
 # Configure a httpd server and put the index file there.
 ---
 - name: Install Apache/httpd
-  hosts: [webservers]
+  hosts: [all]
   remote_user: ec2-user
   vars:
     - ansible_host_key_checking: false
