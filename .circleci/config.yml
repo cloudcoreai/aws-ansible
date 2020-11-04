@@ -40,6 +40,8 @@ jobs:
           name: Run Echo when the job is complete
           command: |
             echo Finished installing Dependencies
+    
+    run_ansible:
       - run:
           name: Configure Server
           command: |
@@ -53,3 +55,6 @@ workflows:
       - deploy_software:
           requires:
             - run_cloudformation_template_job
+      - run_ansible:
+          requires:
+            - deploy_software
