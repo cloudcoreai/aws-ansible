@@ -43,7 +43,7 @@ jobs:
       - run:
           name: Configure Server
           command: |
-            sudo ansible-playbook -vvvv -i ../production playbook.yml
+            ansible-playbook -vvvv -i production playbook.yml
 
 # ***** SOFTWARE DEPLOYMENT END *****
 workflows:
