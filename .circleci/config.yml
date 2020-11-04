@@ -31,7 +31,7 @@ jobs:
     steps:
       - checkout
       - add_ssh_keys:
-          fingerprints: ["ab:88:d3:b3:4e:88:27:f0:06:8c:85:d7:a2:e6:e4:d7"]
+          fingerprints: ["7f:5c:e1:8c:42:ab:00:13:72:eb:56:bd:e0:f2:a7:0c"]
       - run:
           name: Install Dependencies
           command: |
@@ -43,7 +43,7 @@ jobs:
       - run:
           name: Configure Server
           command: |
-            ansible-playbook ANSIBLE_HOST_KEY_CHECKING=False -i production playbook.yml
+            ansible-playbook -i production playbook.yml
 
 # ***** SOFTWARE DEPLOYMENT END *****
 workflows:
