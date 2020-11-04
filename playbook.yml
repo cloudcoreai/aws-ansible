@@ -1,6 +1,5 @@
-# Configure a httpd server and put the index file there.
 ---
-- name: "Install Apache"
+- name: "Install httpd"
   hosts: [all]
   remote_user: ec2-user
   roles:

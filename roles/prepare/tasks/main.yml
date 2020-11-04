@@ -4,5 +4,6 @@
 # Updating VM
 - name: "Update VM"
   become: true
+  become_method: sudo
   yum:
     update_cache: yes
