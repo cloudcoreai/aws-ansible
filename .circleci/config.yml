@@ -9,7 +9,7 @@ commands:
     steps:
     - run: 
         command: |
-          aws cloudformation deploy --template-file aws_cfn_template.yml --stack-name udacity_project --region=us-west-1
+          aws cloudformation deploy --template-file aws_cfn_template.yml --stack-name udacityProject --region=us-west-1
 
 
 jobs:
