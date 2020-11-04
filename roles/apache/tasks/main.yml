@@ -2,6 +2,7 @@
 # Step 1 install httpd
 - name: Install HTTPD
   become: true # become sudo user
+  become_method: sudo
   yum: # command to run
       name: ["httpd"] # package name
       state: latest # version
@@ -11,6 +12,7 @@
 # Step 2 Run HTTPD
 - name: Run HTTPD
   become: true
+  become_method: sudo
   service:
       name: httpd
       state: started
@@ -20,6 +22,7 @@
 # Step 3 change directory permissions.
 - name: Change directory permissions /var/www/html/
   become: true
+  become_method: sudo
   file:
     path: /var/www/html
     state: directory
