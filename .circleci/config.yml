@@ -34,7 +34,10 @@ jobs:
           name: Install Dependencies
           command: |
             apk add --update ansible
-      - run: echo "Install Complete"
+      - run:
+          name: Run Echo when the job is complete
+          command: |
+            echo Finished installing Dependencies
 
 # ***** SOFTWARE DEPLOYMENT END *****
 workflows:
