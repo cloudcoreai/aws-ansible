@@ -43,7 +43,7 @@ jobs:
       - run:
           name: Configure Server
           command: |
-            ansible-playbook -i production playbook.yml
+            ansible-playbook ANSIBLE_HOST_KEY_CHECKING=False -i production playbook.yml
 
 # ***** SOFTWARE DEPLOYMENT END *****
 workflows:
