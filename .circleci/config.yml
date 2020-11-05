@@ -22,6 +22,10 @@ jobs:
           name: Run when the job is complete
           command: |
             echo "AWS Infrastructure Deployed"
+      - run:
+          name: Adding EC2 Instance Name to Inventory
+          command: |
+            aws ec2 describe-instances --query 'Reservations[*].Instances[*].PublicIpAddress' --output text >> production
 # ***** AWS INFRASTRUCTURE END *****
 
 # ***** SOFTWARE DEPLOYMENT START *****
