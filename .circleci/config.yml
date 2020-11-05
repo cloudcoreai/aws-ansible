@@ -25,7 +25,7 @@ jobs:
       - run:
           name: Adding EC2 Instance Name to Inventory
           command: |
-            aws ec2 describe-instances --query 'Reservations[*].Instances[*].PublicIpAddress' --output text >> production
+            aws ec2 describe-instances --query 'Reservations[*].Instances[*].PublicIpAddress'
 # ***** AWS INFRASTRUCTURE END *****
 
 # ***** SOFTWARE DEPLOYMENT START *****
